@@ -54,7 +54,7 @@ class API implements IRestApi {
     public privatePostMultipart = (requestConfig: IRequestObject) => {
         requestConfig.data.append('api', localStorage.getItem('apiKey') || '');
 
-        const response = axios.post((this.config.apiUrl + requestConfig.link), requestConfig.data, {headers: {'content-type': 'multipart/form-data'}});
+        const response = axios.post((this.config.apiUrl + requestConfig.link), {...requestConfig.data, ...this.getApiKey}, {headers: {'content-type': 'multipart/form-data'}});
 
         // listen if user api key is not valid
         response.then(
