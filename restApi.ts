@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-// tslint:disable:no-console
-
 interface IRequestObject {
     link: string,
     data?: any
@@ -21,7 +19,7 @@ interface IRestApi {
 
 class API implements IRestApi {
     private config = {
-        apiUrl: "https://api.proxyshop2018.tk"
+        apiUrl: "url"
     };
 
     public get = (requestConfig: IRequestObject) => {
